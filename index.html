@@ -65,11 +65,53 @@
             font-size: 1.2em;
             text-decoration: none;
             border-radius: 5px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         .department-link:hover {
             background-color: #11a7d9;
+            transform: scale(1.05);
+        }
+
+        /* Semester Buttons Section (Below All Main Buttons) */
+        .semester-section {
+            margin-top: 20px;
+            display: none;
+            /* Initially Hidden */
+            flex-direction: column;
+            align-items: center;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .semester-section.active {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Semester Buttons Container */
+        .semester-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        /* Semester Button Styling */
+        .semester-link {
+            display: inline-block;
+            background-color: #6a51e7;
+            color: #fff;
+            padding: 8px 15px;
+            font-size: 1em;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .semester-link:hover {
+            background-color: #2a6fbf;
+            transform: scale(1.05);
         }
 
         /* Footer */
@@ -94,9 +136,8 @@
         <p class="subtext">Your evaluation will be confidential</p>
     </div>
 
-    <!-- Department Links -->
+    <!-- Main Department Buttons -->
     <div class="departments-container">
-        <!-- Replace # with the actual Google Forms links for each department -->
         <a href="https://forms.gle/e3ciZ6MyfZwYgLBb8" class="department-link" target="_blank">BBA</a>
         <a href="https://forms.gle/xhUrVibG7AnnCJRs9" class="department-link" target="_blank">BCA</a>
         <a href="https://forms.gle/xHPsE6HV4H8UXYFF6" class="department-link" target="_blank">Tourism</a>
@@ -104,13 +145,67 @@
         <a href="https://forms.gle/Rjmwp3KTreUBf62dA" class="department-link" target="_blank">BA English</a>
         <a href="https://forms.gle/zxdgaLthPptjQtbG9" class="department-link" target="_blank">Psychology</a>
         <a href="https://forms.gle/KtjdujrypDHvMTou8" class="department-link" target="_blank">Social Work</a>
-        <a href="https://forms.gle/BxXhi4r5AArEZz5q8" class="department-link" target="_blank">Finance</a>
+
+        <!-- MA English Button -->
+        <a href="#" class="department-link" id="ma-english">MA English</a>
+
+        <!-- Finance Button -->
+        <a href="#" class="department-link" id="finance">Finance</a>
+    </div>
+
+    <!-- Semester Section (Appears Below All Main Buttons) -->
+    <div class="semester-section" id="semester-section">
+        <!-- Semester Buttons for MA English -->
+        <div class="semester-container" id="semester-buttons-ma">
+            <a href="https://forms.gle/q2kzkyeiV4ikrenp6" class="semester-link" target="_blank">MA English Semester
+                2</a>
+            <a href="https://forms.gle/7Tzbt1FQ5rLqfNev9" class="semester-link" target="_blank">MA English Semester
+                4</a>
+        </div>
+
+        <!-- Semester Buttons for Finance -->
+        <div class="semester-container" id="semester-buttons-finance">
+            <a href="https://forms.gle/7h9WAXLYtTzNsYpH8" class="semester-link" target="_blank">Finance Semester
+                6</a>
+        </div>
     </div>
 
     <!-- Footer Section -->
     <div class="footer">
-        &copy; 2024 Christ College Vizhinjam - Teacher Evaluation By Students Portal. All rights reserved.
+        &copy; 2025 Christ College Vizhinjam - Teacher Evaluation By Students Portal. All rights reserved.
     </div>
+
+    <script>
+        function toggleSemesterButtons(selectedSemesterContainerId) {
+            const semesterSection = document.getElementById('semester-section');
+            const allContainers = document.querySelectorAll('.semester-container');
+
+            // Hide all semester button containers
+            allContainers.forEach(container => {
+                if (container.id !== selectedSemesterContainerId) {
+                    container.style.display = 'none';
+                }
+            });
+
+            // Show the semester section and the selected semester buttons
+            semesterSection.classList.add('active');
+            document.getElementById(selectedSemesterContainerId).style.display = 'flex';
+
+            // Scroll smoothly to the semester section
+            semesterSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        document.getElementById('ma-english').addEventListener('click', function (event) {
+            event.preventDefault();
+            toggleSemesterButtons('semester-buttons-ma');
+        });
+
+        document.getElementById('finance').addEventListener('click', function (event) {
+            event.preventDefault();
+            toggleSemesterButtons('semester-buttons-finance');
+        });
+    </script>
+
 </body>
 
 </html>
