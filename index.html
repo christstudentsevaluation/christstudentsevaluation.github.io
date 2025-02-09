@@ -139,7 +139,10 @@
     <!-- Main Department Buttons -->
     <div class="departments-container">
         <a href="https://forms.gle/e3ciZ6MyfZwYgLBb8" class="department-link" target="_blank">BBA</a>
-        <a href="https://forms.gle/xhUrVibG7AnnCJRs9" class="department-link" target="_blank">BCA</a>
+
+        <!-- BCA Button -->
+        <a href="#" class="department-link" id="bca">BCA</a>
+
         <a href="https://forms.gle/xHPsE6HV4H8UXYFF6" class="department-link" target="_blank">Tourism</a>
         <a href="https://forms.gle/gCZEUsCvnDjwD51aA" class="department-link" target="_blank">Tax</a>
         <a href="https://forms.gle/Rjmwp3KTreUBf62dA" class="department-link" target="_blank">BA English</a>
@@ -155,6 +158,12 @@
 
     <!-- Semester Section (Appears Below All Main Buttons) -->
     <div class="semester-section" id="semester-section">
+        <!-- Semester Buttons for BCA -->
+        <div class="semester-container" id="semester-buttons-bca">
+            <a href="https://forms.gle/QB56qjW1AXc13BDk7" class="semester-link" target="_blank">BCA Semester 2</a>
+            <!-- <a href="https://forms.gle/qwerty2" class="semester-link" target="_blank">BCA Semester 4</a> -->
+        </div>
+
         <!-- Semester Buttons for MA English -->
         <div class="semester-container" id="semester-buttons-ma">
             <a href="https://forms.gle/q2kzkyeiV4ikrenp6" class="semester-link" target="_blank">MA English Semester
@@ -165,8 +174,7 @@
 
         <!-- Semester Buttons for Finance -->
         <div class="semester-container" id="semester-buttons-finance">
-            <a href="https://forms.gle/7h9WAXLYtTzNsYpH8" class="semester-link" target="_blank">Finance Semester
-                6</a>
+            <a href="https://forms.gle/7h9WAXLYtTzNsYpH8" class="semester-link" target="_blank">Finance Semester 6</a>
         </div>
     </div>
 
@@ -194,6 +202,11 @@
             // Scroll smoothly to the semester section
             semesterSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
+
+        document.getElementById('bca').addEventListener('click', function (event) {
+            event.preventDefault();
+            toggleSemesterButtons('semester-buttons-bca');
+        });
 
         document.getElementById('ma-english').addEventListener('click', function (event) {
             event.preventDefault();
