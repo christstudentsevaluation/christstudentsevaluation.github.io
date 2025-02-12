@@ -90,7 +90,8 @@
 
         /* Semester Buttons Container */
         .semester-container {
-            display: flex;
+            display: none;
+            /* Initially hidden */
             justify-content: center;
             gap: 10px;
             margin-top: 8px;
@@ -145,7 +146,8 @@
         <!-- Tourism Button -->
         <a href="#" class="department-link" id="tourism">Tourism</a>
 
-        <a href="https://forms.gle/gCZEUsCvnDjwD51aA" class="department-link" target="_blank">Tax</a>
+        <!-- Tax Button -->
+        <a href="#" class="department-link" id="tax">Tax</a>
 
         <!-- Psychology Button -->
         <a href="#" class="department-link" id="psychology">Psychology</a>
@@ -165,6 +167,11 @@
         <!-- Semester Buttons for BCA -->
         <div class="semester-container" id="semester-buttons-bca">
             <a href="https://forms.gle/QB56qjW1AXc13BDk7" class="semester-link" target="_blank">BCA Semester 2</a>
+        </div>
+
+        <!-- Semester Buttons for Tax -->
+        <div class="semester-container" id="semester-buttons-tax">
+            <a href="https://forms.gle/example-tax2" class="semester-link" target="_blank">Tax Semester 2</a>
         </div>
 
         <!-- Semester Buttons for Tourism -->
@@ -197,6 +204,7 @@
 
         <!-- Semester Buttons for Finance -->
         <div class="semester-container" id="semester-buttons-finance">
+            <a href="https://forms.gle/example-finance2" class="semester-link" target="_blank">Finance Semester 2</a>
             <a href="https://forms.gle/7h9WAXLYtTzNsYpH8" class="semester-link" target="_blank">Finance Semester 4</a>
         </div>
     </div>
@@ -219,7 +227,7 @@
             semesterSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
-        ['bca', 'tourism', 'psychology', 'social-work', 'ma-english', 'finance'].forEach(id => {
+        ['bca', 'tourism', 'tax', 'psychology', 'social-work', 'ma-english', 'finance'].forEach(id => {
             document.getElementById(id).addEventListener('click', function (event) {
                 event.preventDefault();
                 toggleSemesterButtons(`semester-buttons-${id}`);
