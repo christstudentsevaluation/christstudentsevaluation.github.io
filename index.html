@@ -138,7 +138,7 @@
 
     <!-- Main Department Buttons -->
     <div class="departments-container">
-        <a href="https://forms.gle/e3ciZ6MyfZwYgLBb8" class="department-link" target="_blank">BBA</a>
+        <a href="#" class="department-link" id="bba">BBA</a>
 
         <!-- BCA Button -->
         <a href="#" class="department-link" id="bca">BCA</a>
@@ -164,6 +164,11 @@
 
     <!-- Semester Section (Appears Below All Main Buttons) -->
     <div class="semester-section" id="semester-section">
+        <!-- Semester Buttons for BBA -->
+        <div class="semester-container" id="semester-buttons-bba">
+            <a href="https://forms.gle/MnsF4YoA9x7EfbwH7" class="semester-link" target="_blank">BBA Semester 2</a>
+        </div>
+
         <!-- Semester Buttons for BCA -->
         <div class="semester-container" id="semester-buttons-bca">
             <a href="https://forms.gle/QB56qjW1AXc13BDk7" class="semester-link" target="_blank">BCA Semester 2</a>
@@ -227,7 +232,7 @@
             semesterSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
-        ['bca', 'tourism', 'tax', 'psychology', 'social-work', 'ma-english', 'finance'].forEach(id => {
+        ['bba', 'bca', 'tourism', 'tax', 'psychology', 'social-work', 'ma-english', 'finance'].forEach(id => {
             document.getElementById(id).addEventListener('click', function (event) {
                 event.preventDefault();
                 toggleSemesterButtons(`semester-buttons-${id}`);
